@@ -1,9 +1,11 @@
-import NavBar from './assets/sections/NavBar'
+import Home from './sections/Home'
+import NavBar from './sections/NavBar'
 
 const App = () => {
   return (
     <main className='max-w-7xl mx-auto'>
       <NavBar />
+      <Home />
     </main>
   )
 }
