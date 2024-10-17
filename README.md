@@ -16,4 +16,6 @@ npm install three @react-three/fiber @react-three/drei react-responsive leva
 
 npm install @react-three/eslint-plugin --sev-dev
 
+npm install @gsap/react gsap
+
 npm run dev

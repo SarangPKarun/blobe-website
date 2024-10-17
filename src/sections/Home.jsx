@@ -1,6 +1,6 @@
 import { PerspectiveCamera } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-// import Globe from "../assets/components/Globe";
+import Globe from "../components/Globe";
 import { HackerRoom } from '../components/HackerRoom.jsx';
 import { Suspense } from "react";
 import CanvasLoader from "../components/CanvasLoader";
@@ -8,6 +8,7 @@ import { Leva, useControls } from "leva";
 import { useMediaQuery } from "react-responsive";
 import { calculateSizes } from "../constants/index.js";
 import Target from "../components/Target.jsx";
+import ReactLogo from "../components/ReactLogo.jsx";
 
 const Home = () => {
   // const controls = useControls('HackerRoom',{
@@ -74,18 +75,20 @@ const Home = () => {
             <Canvas className="w-full h-full">
               <Suspense fallback={<CanvasLoader />}>
                 <PerspectiveCamera makeDefault position={[0, 0, 20]} />
-                <HackerRoom
+                {/* <HackerRoom
                  scale={sizes.deskScale} 
                  position={sizes.deskPosition} 
                  rotation={[0,-Math.PI,0]}
                 //  position = {[controls.positionX,controls.positionY,controls.positionZ]}
                 //  rotation = {[controls.rotationX,controls.rotationY,controls.rotationZ]}
                 //  scale={[controls.scale,controls.scale,controls.scale]}
-                 />
+                 /> */}
+                 <Globe />
 
-                 {/* <group>
+                 <group>
                   <Target position={sizes.targetPosition}/>
-                 </group> */}
+                  <ReactLogo position={sizes.reactLogoPosition}/>
+                 </group>
 
                 <ambientLight intensity={1} />
                 <directionalLight position={[10,10,10]} intensity={0.5}/>
