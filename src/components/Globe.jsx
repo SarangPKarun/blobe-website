@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
@@ -7,10 +7,42 @@ export default function Globe(props) {
   const { nodes, materials } = useGLTF("/models/globe.glb");
   const globeTexture = useTexture("/textures/globe_texture.jpeg"); // Replace with your actual texture path
 
-  // Rotate the globe backward
+  const [scrollY, setScrollY] = useState(0);
+  const [scrollSection, setScrollSection] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY); // Update scroll position on scroll
+      // Map scroll position to sections
+      if (window.scrollY < window.innerHeight) {
+        setScrollSection(0); // First section
+      } else if (window.scrollY < 2 * window.innerHeight) {
+        setScrollSection(1); // Second section
+      } else {
+        setScrollSection(2); // Third section
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll); // Add scroll event listener
+    return () => {
+      window.removeEventListener("scroll", handleScroll); // Clean up the event listener
+    };
+  }, []);
+
+  // Animate globe movement based on scrollSection
   useFrame(() => {
     if (globeRef.current) {
-      globeRef.current.rotation.y -= 0.0015; // Adjust the speed of rotation here
+      // Example of controlling globe's position or rotation based on scrollSection
+      if (scrollSection === 0) {
+        globeRef.current.rotation.y = 0; // Reset rotation for section 1
+        globeRef.current.position.set(0, 0, 0); // Position in first section
+      } else if (scrollSection === 1) {
+        globeRef.current.rotation.y = Math.PI / 4; // Rotate globe for section 2
+        globeRef.current.position.set(0, 0, -5); // Move globe for section 2
+      } else if (scrollSection === 2) {
+        globeRef.current.rotation.y = Math.PI / 2; // Rotate globe for section 3
+        globeRef.current.position.set(0, 0, -10); // Move globe for section 3
+      }
     }
   });
 

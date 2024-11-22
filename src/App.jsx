@@ -16,7 +16,7 @@ const App = () => {
         <NavBar />
 
         {/* Content Area */}
-        <div className="flex-1 overflow-y-auto snap-y snap-mandatory">   {/* overflow-y-auto snap-y snap-mandatory */}
+        <div className="flex-1">   {/* overflow-y-auto snap-y snap-mandatory */}
           
           <section id="home" className="h-screen snap-start">
             <Home />
