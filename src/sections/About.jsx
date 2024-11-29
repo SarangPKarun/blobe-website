@@ -45,15 +45,6 @@ const About = () => {
     <section className="h-screen w-full flex flex-col relative snap-start">
       <div className="w-full h-full flex flex-col justify-center items-center text-white bg-black/80">
         <div className="flex flex-col sm:flex-row w-full h-full">
-          {/* Left Side: Image */}
-          <div
-            className="w-full sm:w-1/2 h-full bg-cover bg-center"
-            style={{
-              backgroundImage:
-                'url("https://your-second-image-url-here.jpg")', // Replace with actual image URL
-            }}
-          ></div>
-
           {/* Right Side: Text */}
           <div className="w-full sm:w-1/2 p-10 flex flex-col justify-center items-start">
             <h2 className="text-4xl font-semibold mb-4">Why Choose Blobe?</h2>
@@ -70,6 +61,17 @@ const About = () => {
               <li>Seamless navigation across multiple devices</li>
             </ul>
           </div>
+          
+          {/* Left Side: Image */}
+          <div
+            className="w-full sm:w-1/2 h-full bg-cover bg-center"
+            style={{
+              backgroundImage:
+                'url("https://your-second-image-url-here.jpg")', // Replace with actual image URL
+            }}
+          ></div>
+
+          
         </div>
       </div>
     </section>
