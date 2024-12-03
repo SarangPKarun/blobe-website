@@ -1,6 +1,6 @@
 npm install --save three
 
-npm install --save-dev vite
+npm install vite
 
 npx vite
 
