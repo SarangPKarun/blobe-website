@@ -20,7 +20,7 @@ gsap.ticker.lagSmoothing(0);
 // 2. Scene Setup
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x010103); // Matches the body background
-
+console.log("hello world!");
 const camera = new THREE.PerspectiveCamera(
   75,
   window.innerWidth / window.innerHeight,
@@ -146,9 +146,9 @@ window.addEventListener("resize", () => {
 
 // 9. Lenis Scroll Integration
 lenis.on("scroll", ({ scroll }) => {
-  // if (globe) {
-  //   globe.rotation.x = scroll / 1000; // Slight interaction with scroll
-  // }
+  if (globe) {
+    globe.rotation.x = scroll / 10; // Slight interaction with scroll
+  }
 
 });
 
